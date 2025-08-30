@@ -18,16 +18,16 @@ StudyMate is an AI-driven academic assistant designed to help students interact 
 - **Multi-PDF Research**: Query across several research papers for thematic insights.
 
 ## Technology Stack/Architecture:
-**Frontend:**
-Streamlit (UI for upload, Q&A, history, transcript).
-**Backend:**
-PyMuPDF (PDF parsing & text extraction).
-SentenceTransformers (all-MiniLM-L6-v2) for embeddings.
-FAISS (semantic search over chunks).
-Hugging Face Transformers (flan-t5-large, bart-base) for LLM-based answers.
-**Data Persistence:**
-Session state (Q&A history)
-Downloadable transcript (.txt).
+- **Frontend:**
+- Streamlit (UI for upload, Q&A, history, transcript).
+- **Backend:**
+- PyMuPDF (PDF parsing & text extraction).
+- SentenceTransformers (all-MiniLM-L6-v2) for embeddings.
+- FAISS (semantic search over chunks).
+- Hugging Face Transformers (flan-t5-large, bart-base) for LLM-based answers.
+- **Data Persistence:**
+- Session state (Q&A history)
+- Downloadable transcript (.txt).
 
 ## Installation
 
