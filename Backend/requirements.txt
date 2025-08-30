@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+python-multipart
+pypdf
+sentence-transformers
+faiss-cpu
+transformers
+torch
+python-dotenv
+huggingface_hub
+streamlit
+pymupdf
+ibm_watsonx_ai

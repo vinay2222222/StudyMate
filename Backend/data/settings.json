@@ -1,0 +1,8 @@
+{
+  "mode": "topic",
+  "similarity_threshold": 1.0,
+  "chunk_size": 1000,
+  "chunk_overlap": 100,
+  "top_k": 20,
+  "model_id": "mistralai/Mixtral-8x7B-Instruct-v0.1"
+}
