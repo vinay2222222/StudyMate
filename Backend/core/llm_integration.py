@@ -2,8 +2,8 @@ from huggingface_hub import InferenceClient
 from config.settings import HF_API_KEY, MODEL_ID
 
 # Initialize Hugging Face client
-client = InferenceClient(model="mistralai/Mixtral-8x7B-Instruct-v0.1"
-, token="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")
+client = InferenceClient(model=MODEL_ID
+, token=HF_API_KEY)
 
 def generate_answer(context_chunks, question):
     """
