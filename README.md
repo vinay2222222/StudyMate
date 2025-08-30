@@ -39,7 +39,7 @@ StudyMate is an AI-driven academic assistant designed to help students interact 
 ### Setup Instructions
 ## 🔹 1. Clone the Repository
 ```bash
-git clone https://github.com/PuneethKrishnaS/StudyMate.git
+git clone https://github.com/vinay2222222/StudyMate.git
 cd StudyMate
 ```
 
