@@ -17,19 +17,17 @@ StudyMate is an AI-driven academic assistant designed to help students interact 
 - **Viva/Open-Book Test Prep**: Self-test by asking multiple questions and saving answers.
 - **Multi-PDF Research**: Query across several research papers for thematic insights.
 
-## Technical Architecture
-- **Input Layer**: PDF upload via Streamlit file uploader, text extraction, and chunking with PyMuPDF (500-word chunks, 100-word overlap).
-- **Semantic Retrieval Layer**: Embedding model (`all-MiniLM-L6-v2` via SentenceTransformers), vector indexing with FAISS, top-k retrieval (default: k=3).
-- **LLM Inference Layer**: Uses Hugging Face’s `mistralai/Mixtral-8x7B-Instruct-v0.1` for factual, concise answers with structured formatting.
-- **Data Persistence Layer**: Session history tracked in memory, exportable as `.txt`.
-- **Frontend & UI Layer**: Modern Streamlit interface with expandable reference sections and Q&A logs.
-- **Configuration & Security Layer**: `.env` file for API credentials, supports easy model configuration.
-
-## Technology Stack
-- **Languages & Frameworks**: Python, Streamlit
-- **Libraries**: PyMuPDF, SentenceTransformers, FAISS, python-dotenv, huggingface_hub
-- **AI Model**: Hugging Face `mistralai/Mixtral-8x7B-Instruct-v0.1`
-- **Environment**: Windows 11, Python 3.10, VS Code
+## Technology Stack/Architecture:
+**Frontend:**
+Streamlit (UI for upload, Q&A, history, transcript).
+**Backend:**
+PyMuPDF (PDF parsing & text extraction).
+SentenceTransformers (all-MiniLM-L6-v2) for embeddings.
+FAISS (semantic search over chunks).
+Hugging Face Transformers (flan-t5-large, bart-base) for LLM-based answers.
+**Data Persistence:**
+Session state (Q&A history)
+Downloadable transcript (.txt).
 
 ## Installation
 
@@ -41,9 +39,10 @@ StudyMate is an AI-driven academic assistant designed to help students interact 
 ### Setup Instructions
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/your-username/StudyMate.git
+   git clone https://github.com/vinay2222222/StudyMate.git
    cd StudyMate
 
 # Hugging Face API Configuration
 HF_API_KEY="your_hugging_face_api_key_here"
+
 MODEL_ID="mistralai/Mixtral-8x7B-Instruct-v0.1"
