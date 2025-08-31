@@ -17,7 +17,6 @@ StudyMate is an AI-driven academic assistant designed to help students interact 
 - **Viva/Open-Book Test Prep**: Self-test by asking multiple questions and saving answers.
 - **Multi-PDF Research**: Query across several research papers for thematic insights.
 
-<<<<<<< HEAD
 ## Technical Architecture
 - **Input Layer**: PDF upload via Streamlit file uploader, text extraction, and chunking with PyMuPDF (500-word chunks, 100-word overlap).
 - **Semantic Retrieval Layer**: Embedding model (`all-MiniLM-L6-v2` via SentenceTransformers), vector indexing with FAISS, top-k retrieval (default: k=3).
@@ -31,19 +30,6 @@ StudyMate is an AI-driven academic assistant designed to help students interact 
 - **Libraries**: PyMuPDF, SentenceTransformers, FAISS, python-dotenv, huggingface_hub
 - **AI Model**: Hugging Face `mistralai/Mixtral-8x7B-Instruct-v0.1`
 - **Environment**: Windows 11, Python 3.10, VS Code
-=======
-## Technology Stack/Architecture:
-- **Frontend:**
- Streamlit (UI for upload, Q&A, history, transcript).
-- **Backend:**
- PyMuPDF (PDF parsing & text extraction).
- SentenceTransformers (all-MiniLM-L6-v2) for embeddings.
- FAISS (semantic search over chunks).
- Hugging Face Transformers (mistralai/Mixtral-8x7B-Instruct-v0.1) for LLM-based answers.
-- **Data Persistence:**
- Session state (Q&A history)
- Downloadable transcript (.txt).
->>>>>>> 1630801dfb79423142d76747a229ef7612a4bd02
 
 ## Installation
 
@@ -53,31 +39,13 @@ StudyMate is an AI-driven academic assistant designed to help students interact 
 - Git
 
 ### Setup Instructions
-<<<<<<< HEAD
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/your-username/StudyMate.git
-   cd StudyMate
-
-# Hugging Face API Configuration
-HF_API_KEY="your_hugging_face_api_key_here"
-MODEL_ID="mistralai/Mixtral-8x7B-Instruct-v0.1"
-
-# Directory Configuration (optional, if not in config/settings.py)
-BASE_DATA_DIR="D:/StudyMateAI again/Backend/data"
-UPLOADS_DIR="D:/StudyMateAI again/Backend/uploads"
-CHUNKS_DIR="D:/StudyMateAI again/Backend/chunks"
-INDEX_DIR="D:/StudyMateAI again/Backend/index"
-
-# Default Settings (optional, can be overridden in settings.py)
-TOP_K=3
-DEFAULT_MODEL_ID="mistralai/Mixtral-8x7B-Instruct-v0.1"
-=======
 ## 🔹 1. Clone the Repository
 ```bash
 git clone https://github.com/vinay2222222/StudyMate.git
 cd StudyMate
 ```
+
+---
 
 ## 🔹 2. Create and Activate Conda Environment
 ```bash
@@ -85,63 +53,79 @@ conda create -n studymate python=3.10 -y
 conda activate studymate
 ```
 
+---
+
 ## 🔹 3. Install Dependencies
+Use the provided `requirements.txt`:
 ```bash
 pip install -r requirements.txt
 ```
 
-If you don’t have `requirements.txt`, install manually:
+If `requirements.txt` is missing, install manually:
 ```bash
-pip install streamlit flask pymupdf sentence-transformers faiss-cpu huggingface_hub python-dotenv requests
+pip install streamlit flask pymupdf sentence-transformers faiss-cpu huggingface_hub python-dotenv requests numpy pandas torch
 ```
 
+---
+
 ## 🔹 4. Configure Environment Variables
-Create a `.env` file in the **root folder** and add:
+Create a `.env` file in the **project root** and add:
 ```ini
 HF_API_KEY="your_huggingface_token_here"
 MODEL_ID="mistralai/Mixtral-8x7B-Instruct-v0.1"
 ```
-👉 Replace `your_huggingface_token_here` with your Hugging Face token.
+👉 Replace `your_huggingface_token_here` with your Hugging Face token from [Hugging Face Settings → Access Tokens](https://huggingface.co/settings/tokens).
+
+---
 
 ## 🔹 5. Run the Backend (Flask API)
+In Anaconda Prompt:
 ```bash
 python Backend/app.py
 ```
-- This starts Flask backend on **http://127.0.0.1:8000**
+- Flask backend will run on **http://127.0.0.1:8000**
 
-⚠️ If you get signal errors, edit `Backend/app.py`:
+⚠️ If you see a `ValueError: signal only works in main thread`, edit the last line of `Backend/app.py`:
 ```python
 app.run(host="127.0.0.1", port=8000, debug=False, use_reloader=False)
 ```
 
+---
+
 ## 🔹 6. Run the Frontend (Streamlit UI)
-In a **new Anaconda Prompt window**:
+Open a **new Anaconda Prompt window** (keep backend running in the first one):
 ```bash
 conda activate studymate
 streamlit run Frontend/app.py
 ```
-- This starts frontend on **http://localhost:8501**
+- Streamlit frontend will run on **http://localhost:8501**
+
+---
 
 ## 🔹 7. Use StudyMate
-- Upload PDFs in the web app  
+- Upload one or more PDFs  
 - Ask natural language questions  
-- Get AI-powered answers with source references  
+- Get **AI-powered answers with referenced text snippets**  
+
+---
 
 ## 🔹 8. Project Structure
 ```
 StudyMate/
-│── Backend/        # Flask backend
+│── Backend/        # Flask backend (API server)
 │    └── app.py
 │
-│── Frontend/       # Streamlit frontend
+│── Frontend/       # Streamlit frontend (UI)
 │    └── app.py
 │
 │── requirements.txt
 │── .env
 ```
 
+---
+
 ## 🔹 9. Troubleshooting
-- **ModuleNotFoundError** → install missing package:
+- **ModuleNotFoundError** → install the missing package:
   ```bash
   pip install <package_name>
   ```
@@ -149,9 +133,8 @@ StudyMate/
   ```bash
   pip install faiss-cpu
   ```
-- **HuggingFace API error** → check `.env` file and token validity.
+- **Hugging Face API error** → check `.env` file and verify token validity.
 
 ---
 
 ✅ Now you can run StudyMate easily inside **Anaconda Prompt** with backend + frontend working together!
->>>>>>> 1630801dfb79423142d76747a229ef7612a4bd02
